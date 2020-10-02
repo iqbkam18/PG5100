@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="no"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SignUpController.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">exam-report</a> &gt; <a href="../index.html" class="el_bundle">exam-frontend</a> &gt; <a href="index.source.html" class="el_package">com.kristiania.exam.frontend.controller</a> &gt; <span class="el_source">SignUpController.java</span></div><h1>SignUpController.java</h1><pre class="source lang-java linenums">package com.kristiania.exam.frontend.controller;
+
+import com.kristiania.exam.backend.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Controller;
+
+import javax.enterprise.context.RequestScoped;
+
+@RequestScoped
+@Controller
+<span class="nc" id="L16">public class SignUpController {</span>
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+
+    private String username;
+
+    private String password;
+
+    public String signUpUser() {
+
+<span class="nc" id="L33">        boolean registered = false;</span>
+        try {
+<span class="nc" id="L35">            registered = userService.createUser(username, username, username + &quot;last&quot;, password, username + &quot;@mail.com&quot;, &quot;user&quot;);</span>
+<span class="nc" id="L36">        } catch (Exception e) {</span>
+<span class="nc" id="L37">            System.out.println(&quot;Exception ::&quot; + e.getMessage());</span>
+<span class="nc" id="L38">        }</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (registered) {</span>
+<span class="nc" id="L40">            UserDetails userDetails = userDetailsService.loadUserByUsername(username);</span>
+<span class="nc" id="L41">            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(</span>
+                    userDetails,
+                    password,
+<span class="nc" id="L44">                    userDetails.getAuthorities());</span>
+<span class="nc" id="L45">            authenticationManager.authenticate(token);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">            if (token.isAuthenticated()) {</span>
+<span class="nc" id="L47">                SecurityContextHolder.getContext().setAuthentication(token);</span>
+            }
+<span class="nc" id="L49">            return &quot;/index.jsf?faces-redirect=true&quot;;</span>
+        } else {
+<span class="nc" id="L51">            return &quot;/signup.jsf?faces-redirect=true&amp;error=true&quot;;</span>
+        }
+    }
+
+    public String getUsername() {
+<span class="nc" id="L56">        return username;</span>
+    }
+
+    public void setUsername(String username) {
+<span class="nc" id="L60">        this.username = username;</span>
+<span class="nc" id="L61">    }</span>
+
+    public String getPassword() {
+<span class="nc" id="L64">        return password;</span>
+    }
+
+    public void setPassword(String password) {
+<span class="nc" id="L68">        this.password = password;</span>
+<span class="nc" id="L69">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

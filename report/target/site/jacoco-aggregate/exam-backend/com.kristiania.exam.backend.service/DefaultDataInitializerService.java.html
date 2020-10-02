@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="no"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>DefaultDataInitializerService.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">exam-report</a> &gt; <a href="../index.html" class="el_bundle">exam-backend</a> &gt; <a href="index.source.html" class="el_package">com.kristiania.exam.backend.service</a> &gt; <span class="el_source">DefaultDataInitializerService.java</span></div><h1>DefaultDataInitializerService.java</h1><pre class="source lang-java linenums">package com.kristiania.exam.backend.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
+import java.util.function.Supplier;
+
+//This class is adaptation of:
+//https://github.com/arcuri82/testing_security_development_enterprise_systems/blob/master/intro/exercise-solutions/quiz-game/part-11/backend/src/main/java/org/tsdes/intro/exercises/quizgame/backend/service/DefaultDataInitializerService.java
+@Service
+<span class="fc" id="L12">public class DefaultDataInitializerService {</span>
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private CopyService copyService;
+
+    @Autowired
+    private ItemService itemService;
+
+    @PostConstruct
+    public void init() {
+        //Create some users so that we can make purchases (with same username and name)
+<span class="fc" id="L25">        String firstUser = &quot;admin&quot;;</span>
+<span class="fc" id="L26">        String secondUser = &quot;foo&quot;;</span>
+<span class="fc" id="L27">        String thirdUser = &quot;bar&quot;;</span>
+
+<span class="fc" id="L29">        attempt(() -&gt; {</span>
+<span class="fc" id="L30">            return userService.createUser(</span>
+                    firstUser, firstUser, &quot;admin-last-name&quot;, &quot;123&quot;, &quot;admin@email.com&quot;, &quot;admin&quot;);
+        });
+<span class="fc" id="L33">        attempt(() -&gt; {</span>
+<span class="fc" id="L34">            return userService.createUser(</span>
+                    secondUser, secondUser, &quot;foo-last-name&quot;, &quot;123&quot;, &quot;foo@email.com&quot;, &quot;user&quot;);
+        });
+<span class="fc" id="L37">        attempt(() -&gt; {</span>
+<span class="fc" id="L38">            return userService.createUser(</span>
+                    thirdUser, thirdUser, &quot;bar-last-name&quot;, &quot;123&quot;, &quot;bar@email.com&quot;, &quot;user&quot;);
+        });
+
+        //Create some item where user need to purchase
+<span class="fc" id="L43">        Long abilityCapsule = attempt(() -&gt;</span>
+<span class="fc" id="L44">                itemService.createItem(</span>
+                        &quot;Ability Capsule&quot;,
+                        &quot;A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.&quot;,
+<span class="fc" id="L47">                        2L));</span>
+<span class="fc" id="L48">        Long abilityUrge = attempt(() -&gt;</span>
+<span class="fc" id="L49">                itemService.createItem(</span>
+                        &quot;Ability Urge&quot;,
+                        &quot;When used, it activates the Ability of an ally Pokémon.&quot;,
+<span class="fc" id="L52">                        2L));</span>
+<span class="fc" id="L53">        Long abomasite = attempt(() -&gt;</span>
+<span class="fc" id="L54">                itemService.createItem(</span>
+                        &quot;Abomasite&quot;,
+                        &quot;Enables Abomasnow to Mega Evolve during battle.&quot;,
+<span class="fc" id="L57">                        2L));</span>
+<span class="fc" id="L58">        Long absolite = attempt(() -&gt;</span>
+<span class="fc" id="L59">                itemService.createItem(</span>
+                        &quot;Absolite&quot;,
+                        &quot;Enables Absol to Mega Evolve during battle.&quot;,
+<span class="fc" id="L62">                        2L));</span>
+<span class="fc" id="L63">        Long absorbBulb = attempt(() -&gt;</span>
+<span class="fc" id="L64">                itemService.createItem(</span>
+                        &quot;Absorb Bulb&quot;,
+                        &quot;A consumable bulb. If the holder is hit by a Water-type move, its Sp. Atk will rise.&quot;,
+<span class="fc" id="L67">                        2L));</span>
+<span class="fc" id="L68">        Long adamantMint = attempt(() -&gt;</span>
+<span class="fc" id="L69">                itemService.createItem(</span>
+                        &quot;Adamant Mint&quot;,
+                        &quot;Changes the Pokémon's stats to match the Adamant nature.&quot;,
+<span class="fc" id="L72">                        2L));</span>
+<span class="fc" id="L73">        Long adamantOrb = attempt(() -&gt;</span>
+<span class="fc" id="L74">                itemService.createItem(</span>
+                        &quot;Adamant Orb&quot;,
+                        &quot;Increases the power of Dragon- and Steel-type moves when held by Dialga.&quot;,
+<span class="fc" id="L77">                        2L));</span>
+<span class="fc" id="L78">        Long adrenalineOrb = attempt(() -&gt;</span>
+<span class="fc" id="L79">                itemService.createItem(</span>
+                        &quot;Adrenaline Orb&quot;,
+                        &quot;Using it makes wild Pokémon more likely to call for help. If held by a Pokémon, it boosts Speed when intimidated. It can be used only once.&quot;,
+<span class="fc" id="L82">                        2L));</span>
+<span class="fc" id="L83">        Long aerodactylite = attempt(() -&gt;</span>
+<span class="fc" id="L84">                itemService.createItem(</span>
+                        &quot;Aerodactylite&quot;,
+                        &quot;Enables Aerodactyl to Mega Evolve during battle.&quot;,
+<span class="fc" id="L87">                        2L));</span>
+<span class="fc" id="L88">        Long aggronite = attempt(() -&gt;</span>
+<span class="fc" id="L89">                itemService.createItem(</span>
+                        &quot;Aggronite&quot;,
+                        &quot;Enables Aggron to Mega Evolve during battle.&quot;,
+<span class="fc" id="L92">                        2L));</span>
+
+//        //Okay, lets start purchasing
+<span class="fc" id="L95">        copyService.purchaseVirtualPockemonItem(abilityCapsule,firstUser);</span>
+<span class="fc" id="L96">        copyService.purchaseVirtualPockemonItem(abilityUrge,thirdUser);</span>
+<span class="fc" id="L97">        copyService.purchaseVirtualPockemonItem(abomasite,secondUser);</span>
+<span class="fc" id="L98">        copyService.purchaseVirtualPockemonItem(absolite,thirdUser);</span>
+<span class="fc" id="L99">        copyService.purchaseVirtualPockemonItem(absorbBulb,firstUser);</span>
+<span class="fc" id="L100">        copyService.purchaseVirtualPockemonItem(adamantOrb,secondUser);</span>
+<span class="fc" id="L101">    }</span>
+
+    private &lt;T&gt; T attempt(Supplier&lt;T&gt; lambda) {
+            try {
+<span class="fc" id="L105">                return lambda.get();</span>
+<span class="nc" id="L106">            } catch (Exception e) {</span>
+<span class="nc" id="L107">                return null;</span>
+            }
+        }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

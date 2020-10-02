@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="no"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CopyService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">exam-backend</a> &gt; <a href="index.source.html" class="el_package">com.kristiania.exam.backend.service</a> &gt; <span class="el_source">CopyService.java</span></div><h1>CopyService.java</h1><pre class="source lang-java linenums">package com.kristiania.exam.backend.service;
+
+import com.kristiania.exam.backend.entity.Copy;
+import com.kristiania.exam.backend.entity.Item;
+import com.kristiania.exam.backend.entity.Users;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.List;
+
+@Service
+@Transactional
+<span class="fc" id="L17">public class CopyService {</span>
+
+    @Autowired
+    private EntityManager entityManager;
+
+    public List&lt;Copy&gt; getAllCopys() {
+<span class="fc" id="L23">        TypedQuery&lt;Copy&gt; query = entityManager.createQuery(&quot;SELECT p FROM Copy p&quot;, Copy.class);</span>
+<span class="fc" id="L24">        return query.getResultList();</span>
+    }
+
+    public List&lt;Copy&gt; filterPurchasesByItem(Long itemId) {
+<span class="fc" id="L28">        TypedQuery&lt;Copy&gt; query = entityManager.createQuery(</span>
+                &quot;SELECT p FROM Copy p WHERE p.item.itemId =?1&quot;, Copy.class);
+<span class="fc" id="L30">        query.setParameter(1, itemId);</span>
+        //It could be that here are no purchases but that is fine
+<span class="fc" id="L32">        return query.getResultList();</span>
+    }
+
+    public Long purchaseVirtualPockemonItem(Long itemId, String userID) {
+<span class="fc" id="L36">        Item item = entityManager.find(Item.class, itemId);</span>
+<span class="fc" id="L37">        Users users = entityManager.find(Users.class, userID);</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if (item == null) {</span>
+<span class="nc" id="L39">            throw new RuntimeException(&quot;Item Not Found or in-game currency 0 or loot-boxes is 0&quot;);</span>
+        }
+<span class="pc bpc" id="L41" title="3 of 6 branches missed.">        if (users == null || users.getInGameCurrency() == null || users.getInGameCurrency() == 0) {</span>
+<span class="nc" id="L42">            throw new RuntimeException(&quot;User not found or you have not suffociant currency&quot;);</span>
+        }
+
+<span class="fc" id="L45">        Copy copy = new Copy();</span>
+<span class="fc" id="L46">        copy.setItem(item);</span>
+<span class="fc" id="L47">        copy.setUsers(users);</span>
+<span class="fc" id="L48">        copy.setTitle(item.getTitle());</span>
+<span class="fc" id="L49">        copy.setDescription(item.getDescription());</span>
+<span class="fc" id="L50">        copy.setItemCost(2L);</span>
+<span class="fc" id="L51">        copy.setLootBoxes(1L);</span>
+<span class="fc" id="L52">        copy.setBuyDate(LocalDate.now());</span>
+<span class="fc" id="L53">        entityManager.persist(copy);</span>
+        //update user loot-boxes and cost for item purchase; the loot and cost will be redeemed
+        //For Every purchase loot boxes will be deducted 1 and currency will be deducted 2
+<span class="fc" id="L56">        users.setAvailableLootBoxes(users.getAvailableLootBoxes() - 1);</span>
+<span class="fc" id="L57">        users.setInGameCurrency(users.getInGameCurrency() - 2);</span>
+<span class="fc" id="L58">        entityManager.persist(users);</span>
+<span class="fc" id="L59">        return copy.getId();</span>
+    }
+
+    public List&lt;Copy&gt; filterPurchasesByUser(String userID) {
+<span class="fc" id="L63">        TypedQuery&lt;Copy&gt; query = entityManager.createQuery(</span>
+                &quot;SELECT p FROM Copy p WHERE p.users.userID =?1&quot;, Copy.class
+        );
+<span class="fc" id="L66">        query.setParameter(1, userID);</span>
+<span class="fc" id="L67">        return query.getResultList();</span>
+    }
+
+    public Boolean deletePurchasesHist(Long copyId) {
+        try {
+<span class="fc" id="L72">            Copy copy = entityManager.find(Copy.class, copyId);</span>
+<span class="fc" id="L73">            entityManager.detach(copy);</span>
+<span class="fc" id="L74">            return true;</span>
+<span class="nc" id="L75">        } catch (Exception ex) {</span>
+<span class="nc" id="L76">            return false;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

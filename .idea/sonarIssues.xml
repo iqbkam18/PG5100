@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/entity/Copy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/entity/Item.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/entity/Trip.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/entity/Users.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/service/CopyService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/service/DefaultDataInitializerService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/service/ItemService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/service/PurchaseService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/service/TripService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/service/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/java/com/kristiania/exam/backend/util/PasswordConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1.0__createDB.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/test/java/com/kristiania/exam/TestApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/test/java/com/kristiania/exam/services/DefaultDataInitializerServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/test/java/com/kristiania/exam/services/ItemServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/test/java/com/kristiania/exam/services/PurchaseServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/test/java/com/kristiania/exam/services/ResetService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/test/java/com/kristiania/exam/services/ServiceTestBase.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/test/java/com/kristiania/exam/services/TripServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/Application.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/controller/ItemController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/controller/LootUpdateController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/controller/SignUpController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/controller/TravelController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/controller/UserInfoController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/security/AuthenticationSuccessHandlerImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/security/DirectAccessBlockFilter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/security/RedirectForwardHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/security/SecurityExceptionHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/java/com/kristiania/exam/frontend/security/WebSecurityConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/MANIFEST.MF">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/buy_item_details.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/buy_loot.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/details.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/index.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/layout.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/layout_login.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/layout_signup.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/login.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/resources/signup.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/META-INF/spring.factories">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/test/java/com/kristiania/exam/selenium/SeleniumLocalIT.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/test/java/com/kristiania/exam/selenium/po/DetailsPO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/test/java/com/kristiania/exam/selenium/po/IndexPO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/test/java/com/kristiania/exam/selenium/po/LayoutPO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/test/java/com/kristiania/exam/selenium/po/SignUpPO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontend/src/test/java/com/kristiania/exam/selenium/po/UserPO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/report/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../tsdes-exercise/tsdes-exercise/backend/src/main/java/no/kristiania/mock/exam/backend/services/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../tsdes-exercise/tsdes-exercise/backend/src/test/java/no/kristiania/mock/exam/backend/services/PurchaseServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../tsdes-exercise/tsdes-exercise/frontend/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/controller/SingleApiController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/repository/CustomerMappingDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/request/ElkRequestBuilder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/request/ElkRequestBuilderImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/service/CustDeviceServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/service/ICustDeviceService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/service/WebFilterElkServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/java/com/hlc/fw/util/FormatElkResponse.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/elk-firewall-integration/Firewall/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/essential/src/main/java/com/mlab/endpoint/controller/FirewallController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/essential/src/main/resources/properties/db.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/essential/src/main/webapp/WEB-INF/views/firewall_footer.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/HLC-GIT/essential/src/main/webapp/WEB-INF/views/managedfirewall/customer/firewall_dashboard.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

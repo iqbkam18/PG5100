@@ -1,0 +1,6 @@
+com\kristiania\exam\services\ResetService.class
+com\kristiania\exam\services\PurchaseServiceTest.class
+com\kristiania\exam\services\DefaultDataInitializerServiceTest.class
+com\kristiania\exam\TestApplication.class
+com\kristiania\exam\services\ServiceTestBase.class
+com\kristiania\exam\services\ItemServiceTest.class

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="no"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SearchController.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">exam-report</a> &gt; <a href="../index.html" class="el_bundle">exam-frontend</a> &gt; <a href="index.source.html" class="el_package">com.kristiania.exam.frontend.controller</a> &gt; <span class="el_source">SearchController.java</span></div><h1>SearchController.java</h1><pre class="source lang-java linenums">package com.kristiania.exam.frontend.controller;
+
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
+@SessionScoped
+<span class="nc" id="L9">public class SearchController implements Serializable {</span>
+    String selection;
+    String query;
+
+    public String getSelection() {
+<span class="nc" id="L14">        return selection;</span>
+    }
+
+    public void setSelection(String selection) {
+<span class="nc" id="L18">        this.selection = selection;</span>
+<span class="nc" id="L19">    }</span>
+
+    public String getSearchLink() {
+<span class="nc" id="L22">        return &quot;index?searchBy=&quot; + selection + &quot;&amp;query=&quot; + query + &quot;&amp;faces-redirect=true&quot;;</span>
+    }
+
+    public String getQuery() {
+<span class="nc" id="L26">        return query;</span>
+    }
+
+    public void setQuery(String query) {
+<span class="nc" id="L30">        this.query = query;</span>
+<span class="nc" id="L31">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,8 @@
+com\kristiania\exam\backend\entity\Users.class
+com\kristiania\exam\backend\service\DefaultDataInitializerService.class
+com\kristiania\exam\backend\util\PasswordConfig.class
+com\kristiania\exam\backend\service\ItemService.class
+com\kristiania\exam\backend\service\UserService.class
+com\kristiania\exam\backend\entity\Item.class
+com\kristiania\exam\backend\entity\Copy.class
+com\kristiania\exam\backend\service\CopyService.class

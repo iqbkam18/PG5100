@@ -1,0 +1,16 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+exam-report/exam-backend,com.kristiania.exam.backend.util,PasswordConfig,0,7,0,0,0,2,0,2,0,2
+exam-report/exam-backend,com.kristiania.exam.backend.service,CopyService,14,146,4,4,4,29,4,6,0,6
+exam-report/exam-backend,com.kristiania.exam.backend.service,DefaultDataInitializerService,3,240,0,0,2,48,0,16,0,16
+exam-report/exam-backend,com.kristiania.exam.backend.service,UserService,42,83,5,3,8,20,5,4,1,4
+exam-report/exam-backend,com.kristiania.exam.backend.service,ItemService,5,118,2,4,1,30,2,9,0,8
+exam-report/exam-backend,com.kristiania.exam.backend.entity,Copy,26,41,0,0,9,16,8,9,8,9
+exam-report/exam-backend,com.kristiania.exam.backend.entity,Users,23,53,0,0,8,23,7,14,7,14
+exam-report/exam-backend,com.kristiania.exam.backend.entity,Item,13,30,0,0,5,11,3,8,3,8
+exam-report/exam-frontend,com.kristiania.exam.frontend.controller,SignUpController,75,0,4,0,21,0,8,0,6,0
+exam-report/exam-frontend,com.kristiania.exam.frontend.controller,ItemController,110,0,8,0,19,0,13,0,9,0
+exam-report/exam-frontend,com.kristiania.exam.frontend.controller,SearchController,23,0,0,0,8,0,6,0,6,0
+exam-report/exam-frontend,com.kristiania.exam.frontend.controller,UserInfoController,70,0,6,0,21,0,12,0,9,0
+exam-report/exam-frontend,com.kristiania.exam,Application,8,0,0,0,3,0,2,0,2,0
+exam-report/exam-frontend,com.kristiania.exam.frontend.security,WebSecurityConfig,106,0,0,0,32,0,5,0,5,0
+exam-report/exam-frontend,com.kristiania.exam.frontend.security,RedirectForwardHandler,5,0,0,0,2,0,2,0,2,0

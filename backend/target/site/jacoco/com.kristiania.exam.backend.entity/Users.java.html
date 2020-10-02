@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="no"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Users.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">exam-backend</a> &gt; <a href="index.source.html" class="el_package">com.kristiania.exam.backend.entity</a> &gt; <span class="el_source">Users.java</span></div><h1>Users.java</h1><pre class="source lang-java linenums">package com.kristiania.exam.backend.entity;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Set;
+
+//User: having info like name, surname, hashed-password, email, available_loot_boxes,in_game_currency tc.
+@Entity
+<span class="fc" id="L13">public class Users {</span>
+    //Could just use email as primary key, but I think it is easier to login with ID then with email (lengthwise)
+    @Id
+    @NotBlank
+    private String userID;
+
+    @NotBlank
+    @Size(max = 128)
+    private String name;
+
+    @NotBlank
+    @Size(max = 128)
+    private String lastName;
+
+    @NotBlank //Not null, and not empty
+    private String hashedPassword;
+
+    //We could have agency's that can add new trips and users that are going to book trips
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set&lt;String&gt; roles;
+
+    @Email
+    @Column(unique = true)
+    private String email;
+
+    @NotNull
+    private Long availableLootBoxes;
+
+    @NotNull
+    private Long inGameCurrency;
+
+    @NotNull
+    private Boolean enabled;
+
+    @OneToMany(mappedBy = &quot;users&quot;, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List&lt;Copy&gt; copyList;
+
+    public String getUserID() {
+<span class="fc" id="L51">        return userID;</span>
+    }
+
+    public void setUserID(String userID) {
+<span class="fc" id="L55">        this.userID = userID;</span>
+<span class="fc" id="L56">    }</span>
+
+    public String getName() {
+<span class="fc" id="L59">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L63">        this.name = name;</span>
+<span class="fc" id="L64">    }</span>
+
+    public String getLastName() {
+<span class="nc" id="L67">        return lastName;</span>
+    }
+
+    public void setLastName(String lastName) {
+<span class="fc" id="L71">        this.lastName = lastName;</span>
+<span class="fc" id="L72">    }</span>
+
+    public String getHashedPassword() {
+<span class="nc" id="L75">        return hashedPassword;</span>
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+<span class="fc" id="L79">        this.hashedPassword = hashedPassword;</span>
+<span class="fc" id="L80">    }</span>
+
+    public String getEmail() {
+<span class="nc" id="L83">        return email;</span>
+    }
+
+    public Set&lt;String&gt; getRoles() {
+<span class="nc" id="L87">        return roles;</span>
+    }
+
+    public void setRoles(Set&lt;String&gt; roles) {
+<span class="fc" id="L91">        this.roles = roles;</span>
+<span class="fc" id="L92">    }</span>
+
+    public Boolean getEnabled() {
+<span class="nc" id="L95">        return enabled;</span>
+    }
+
+    public void setEnabled(Boolean enabled) {
+<span class="fc" id="L99">        this.enabled = enabled;</span>
+<span class="fc" id="L100">    }</span>
+
+    public void setEmail(String email) {
+<span class="fc" id="L103">        this.email = email;</span>
+<span class="fc" id="L104">    }</span>
+
+    public Long getAvailableLootBoxes() {
+<span class="fc" id="L107">        return availableLootBoxes;</span>
+    }
+
+    public Users setAvailableLootBoxes(Long availableLootBoxes) {
+<span class="fc" id="L111">        this.availableLootBoxes = availableLootBoxes;</span>
+<span class="fc" id="L112">        return this;</span>
+    }
+
+    public Long getInGameCurrency() {
+<span class="fc" id="L116">        return inGameCurrency;</span>
+    }
+
+    public Users setInGameCurrency(Long inGameCurrency) {
+<span class="fc" id="L120">        this.inGameCurrency = inGameCurrency;</span>
+<span class="fc" id="L121">        return this;</span>
+    }
+
+    public List&lt;Copy&gt; getCopyList() {
+<span class="nc" id="L125">        return copyList;</span>
+    }
+
+    public Users setCopyList(List&lt;Copy&gt; copyList) {
+<span class="nc" id="L129">        this.copyList = copyList;</span>
+<span class="nc" id="L130">        return this;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="no"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">exam-report</a> &gt; <a href="../index.html" class="el_bundle">exam-backend</a> &gt; <a href="index.source.html" class="el_package">com.kristiania.exam.backend.service</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package com.kristiania.exam.backend.service;
+
+import com.kristiania.exam.backend.entity.Users;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+import java.util.Collections;
+
+/**
+ * As login system is same as in class, this java class is adaptation
+ * https://github.com/arcuri82/testing_security_development_enterprise_systems/blob/master/intro/exercise-solutions/quiz-game/part-11/backend/src/main/java/org/tsdes/intro/exercises/quizgame/backend/service/UserService.java
+ */
+@Service
+@Transactional
+<span class="fc" id="L18">public class UserService {</span>
+    @Autowired
+    private EntityManager em;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public boolean createUser(String userName, String name, String lastName, String password, String email, String role){
+<span class="fc" id="L26">        String hashedPassword = passwordEncoder.encode(password);</span>
+        //If there is user with given username or email in database we can not create it again, return false
+<span class="pc bpc" id="L28" title="2 of 4 branches missed.">        if((em.find(Users.class, userName) != null) || (em.find(Users.class, email) != null)){</span>
+<span class="nc" id="L29">            return false;</span>
+        }
+<span class="fc" id="L31">        Users users = new Users();</span>
+<span class="fc" id="L32">        users.setUserID(userName);</span>
+<span class="fc" id="L33">        users.setName(name);</span>
+<span class="fc" id="L34">        users.setLastName(lastName);</span>
+<span class="fc" id="L35">        users.setHashedPassword(hashedPassword);</span>
+<span class="fc" id="L36">        users.setRoles(Collections.singleton(role));</span>
+<span class="fc" id="L37">        users.setEnabled(true);</span>
+<span class="fc" id="L38">        users.setEmail(email);</span>
+<span class="fc" id="L39">        users.setAvailableLootBoxes(25L);</span>
+<span class="fc" id="L40">        users.setInGameCurrency(100L);</span>
+<span class="fc" id="L41">        em.persist(users);</span>
+<span class="fc" id="L42">        return true;</span>
+    }
+
+    public boolean purchaseLootByRedeemCurrency(Users users, Long gameCurrency){
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if(users ==null){</span>
+<span class="nc" id="L47">            throw new IllegalArgumentException(&quot;User not found&quot;);</span>
+        }
+<span class="nc" id="L49">        users.setInGameCurrency(users.getInGameCurrency()- gameCurrency);</span>
+<span class="nc" id="L50">        users.setAvailableLootBoxes(users.getAvailableLootBoxes() + (4 * gameCurrency));</span>
+<span class="nc" id="L51">        em.persist(users);</span>
+<span class="nc" id="L52">        return true;</span>
+    }
+
+    public Users findUserByUserName(String userName){
+<span class="fc" id="L56">        Users users = em.find(Users.class,userName);</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if(users == null){</span>
+<span class="nc" id="L58">            throw new IllegalStateException(&quot;No user with given userName&quot;);</span>
+        }
+//        users.getBookedTrips().size();
+<span class="fc" id="L61">        return users;</span>
+    }
+
+    public Users updateUser(Users users){
+<span class="fc" id="L65">        em.persist(users);</span>
+<span class="fc" id="L66">        return findUserByUserName(users.getName());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
